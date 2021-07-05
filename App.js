@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  TextInput,
-  Button,
-  StyleSheet,
-  SafeAreaView,
-} from 'react-native';
-import {useForm, Controller, FormProvider} from 'react-hook-form';
+import {Text, TextInput, Button, StyleSheet, SafeAreaView} from 'react-native';
+import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
@@ -42,12 +35,13 @@ export default function App() {
       }}>
       <Controller
         control={control}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({field: {onChange, onBlur, value, ref}}) => (
           <TextInput
             style={styles.input}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            ref={ref}
           />
         )}
         name="firstName"
@@ -56,12 +50,13 @@ export default function App() {
 
       <Controller
         control={control}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({field: {onChange, onBlur, value, ref}}) => (
           <TextInput
             style={styles.input}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            ref={ref}
           />
         )}
         name="lastName"
