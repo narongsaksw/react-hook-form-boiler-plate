@@ -4,14 +4,13 @@ import {View} from 'react-native';
 import {FormProvider, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 
-const Form = ({defaultValues = {}, children, onSubmit, schema}) => {
-  const methods = useForm({
-    defaultValues,
-    resolver: yupResolver(schema),
-  });
-
+const Form = ({defaultValues = {}, children, methods, schema}) => {
+  // const methods = useForm({
+  //   defaultValues,
+  //   resolver: yupResolver(schema),
+  // });
   return (
-    <FormProvider {...methods} onSubmit={onSubmit}>
+    <FormProvider {...methods}>
       <View>{children}</View>
     </FormProvider>
   );
@@ -20,7 +19,7 @@ const Form = ({defaultValues = {}, children, onSubmit, schema}) => {
 Form.propTypes = {
   defaultValues: PropTypes.object,
   children: PropTypes.node.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  // onSubmit: PropTypes.func.isRequired,
   schema: PropTypes.object,
 };
 

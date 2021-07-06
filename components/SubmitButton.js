@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from 'react-native';
 import PropTypes from 'prop-types';
-import {useFormContext, useForm} from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {Item} from './components';
 // import Button from 'components/Button'
 
@@ -13,19 +13,22 @@ const SubmitButton = ({
   onSubmit,
   ...rest
 }) => {
-  //   const {handleSubmit, onSubmit, reset} = useFormContext();
-  const {handleSubmit, reset} = useForm();
+  // const {handleSubmit, reset} = useForm();
+  // const onPress = () => {
+  //   onSubmit();
+  //   reset();
+  // };
   return (
-    <Item>
-      <Button
-        testID={testID}
-        style={style}
-        title={title}
-        // onPress={handleSubmit((data, e) => onSubmit(data, e, reset))}
-        disable={disable}
-        {...rest}
-      />
-    </Item>
+    // <Item style={{...style}}>
+    <Button
+      testID={testID}
+      // style={style}
+      title={title}
+      onPress={onSubmit}
+      disable={disable}
+      {...rest}
+    />
+    // </Item>
   );
 };
 
